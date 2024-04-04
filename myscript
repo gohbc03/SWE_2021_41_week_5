@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for file in files/*; do
+    filename=$(basename "$file")
+    first_char="${filename:0:1}"
+    lowercase_first_char="${first_char,,}"
+    if [[ $lowercase_first_char =~ [a-z] ]]; then
+        mv "$file" "$lowercase_first_char"/
+    fi
+done
